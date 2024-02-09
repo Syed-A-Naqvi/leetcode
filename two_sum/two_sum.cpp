@@ -11,7 +11,7 @@ void swap(int* array, int i, int j){
 // standard quicksort implementation
 void quicksort(int* array, int start, int end){
 
-    if(start == end){
+    if(start >= end){
         return;
     }
 
@@ -31,9 +31,9 @@ void quicksort(int* array, int start, int end){
             j++;
         }
     }
-
+    
     // inserting pivot to correct position
-    swap(array, pivot, i);
+    swap(array, start, i);
 
     //recursive call
     quicksort(array, start, i);
@@ -56,16 +56,18 @@ std::tuple<int,int> two_sum(int* array, int start, int end, int target){
     int j = end;
     while(j > i){
         if ((array[i] + array[j]) > target){
-            // printf("%d + %d = %d > %d...decrementing j\n",
-            // array[i], array[j], array[i] + array[j],target);
+            printf("%d + %d = %d > %d ... decrementing j\n",
+            array[i], array[j], array[i] + array[j],target);
             j--;
         }
         else if ((array[i] + array[j]) < target){
-            // printf("%d + %d = %d > %d...decrementing j\n",
-            // array[i], array[j], array[i] + array[j],target);
+            printf("%d + %d = %d < %d ... incrementing i\n",
+            array[i], array[j], array[i] + array[j],target);
             i++;
         }
         else{
+            printf("%d + %d = %d ... pair found: (%d,%d)\n",
+            array[i], array[j], target, array[i], array[j]);
             return std::tuple<int,int>(array[i],array[j]);
         }
     }
