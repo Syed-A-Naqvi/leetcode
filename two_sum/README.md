@@ -12,7 +12,7 @@ solution:
     First and last elements are tracked using pointers i and j.  
     Iterate through the array (O(n)) by incrementing i and decrementing j based on the  
     sum of their elements.  
-    Return pair if noe is found, (0,0) if no pair is found.  
+    Return a pair if it sums to the target, return (0,0) if no such pair is found.  
 
 complexity:
 
