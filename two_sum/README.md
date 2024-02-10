@@ -16,4 +16,5 @@ solution:
 
 complexity:
 
-    O(nlogn)  
+    time: O(nlogn)  
+    space: O(1)  
