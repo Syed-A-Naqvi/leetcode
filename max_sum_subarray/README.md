@@ -9,12 +9,16 @@ ex:
 
 solution:
 
-    Point to the first and last elements of the array. Calculate area between  
-    the bars and store it as max_area. Start traversing the list using the  
-    the pointer to the lower of the two bars (if they are equal height choose  one randomly). If we encounter a bar of greater height than the original,  
-    calculate new area. Repeat until pointers meet. 
+    Start and end pointers will be used to track a potential max sum subarray. Use an iterator  variable j to go through array. if jth element is larger than sum of previous elements, set  
+    running sum to jth element and move start and end to j. if jth element + running sum is greater  
+    than jth element, add jth element to running sum, mark j as new end for potential subarray and  
+    increment j. Continue until j reaches end of array.  
+    Start and end will now track a max sum subarray.
 
 complexity:
+
+    this complexity may not be entirely accurate as i create a new vector and implement a printing  
+    function which may add to the functionality.
 
     time: O(n)  
     space: O(1)  
