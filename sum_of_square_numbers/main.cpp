@@ -6,30 +6,30 @@ class Solution {
     public:
         bool judgeSquareSum(int c) {
             
-            int a = 1;
-            int b = 0;
+            double b = sqrt(c);
 
-            if ( (sqrt(c) - floor(sqrt(c))) == 0)
+            if(fmod(b, 1) == 0 )
             {
-                b = int(sqrt(c)) - 1;
+                return true;
             }
             else
             {
-                b = int(floor(sqrt(c)));
+                b = int(b);
             }
-            
-            while ( !( a > b ) )
+
+            double min = 0;
+
+            while (b > min)
             {
-                if( (pow(a,2) + pow(b,2)) == c)
+                min = sqrt(c-(b*b));
+
+                if( fmod(min,1) == 0)
                 {
                     return true;
                 }
-                else if ((pow(a,2) + pow(b,2)) > c)
+                else
                 {
                     b--;
-                }
-                else{
-                    a++;
                 }
             }
 
@@ -40,9 +40,21 @@ class Solution {
 
 int main(int argc, char const *argv[])
 {
-    int c = 100;
+
+    int c = 6;
     Solution* s1 = new Solution();
-    printf("Is %d the sum of two square numbers? %d\n", c, s1->judgeSquareSum(c));
+
+    if (s1->judgeSquareSum(c))
+    {
+        printf("%d is the sum of two square numbers.\n", c);
+    }
+    else
+    {
+        printf("%d is NOT the sum of two square numbers.\n", c);
+    }
+    
+
+
     return 0;
 }
 
