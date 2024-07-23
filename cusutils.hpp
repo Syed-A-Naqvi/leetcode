@@ -4,10 +4,11 @@
 #include<string>
 #include<vector>
 
-std::string vec_to_string(std::vector<int>& vec)
+template<typename T>
+std::string vec_to_string(const std::vector<T>& vec)
 {
     
-    if(vec.size() == 0)
+    if(vec.empty())
     {
         return "[]";
     }
