@@ -1,5 +1,6 @@
 #include"../../cusutils.hpp"
 #include<queue>
+#include<stack>
 
 struct TreeNode
 {
@@ -15,15 +16,13 @@ class Solution
     public:
     TreeNode* balanceBST(TreeNode* root) {
         
-        std::vector<TreeNode*> nodeOrder;
+        std::vector<int> nodeOrder;
         this->inorder(nodeOrder, root);
         
         printf("[ ");
         for(auto& n : nodeOrder)
         {
-            n->left = nullptr;
-            n->right = nullptr;
-            printf("%d ", n->val);
+            printf("%d ", n);
         }
         printf("]\n");
 
@@ -34,7 +33,7 @@ class Solution
         printf("[ ");
         for(auto& n : nodeOrder)
         {
-            printf("%d ", n->val);
+            printf("%d ", n);
         }
         printf("]\n");
 
@@ -66,33 +65,44 @@ class Solution
     }
 
     private:
-    void inorder(std::vector<TreeNode*>& nodeOrder, TreeNode* root)
+    void inorder(std::vector<int>& nodeOrder, TreeNode* root)
     {
-        if(!root)
+        std::stack<TreeNode*> nodeStack;
+        TreeNode* node = root;
+
+        while(node || !nodeStack.empty())
         {
-            return;
+            while(node)
+            {
+                nodeStack.push(node);
+                node = node->left;
+            }
+
+            node = nodeStack.top();
+            nodeStack.pop();
+            nodeOrder.push_back(node->val);
+
+            node = node->right;
         }
-        this->inorder(nodeOrder, root->left);
-        nodeOrder.push_back(root);
-        this->inorder(nodeOrder, root->right);
+
     }
-    TreeNode* build(std::vector<TreeNode*>& nodeOrder, int start, int end)
+    TreeNode* build(std::vector<int>& nodeOrder, int start, int end)
     {
-        if(start > end)
+        if (start > end)
         {
             return nullptr;
         }
         else if(start == end)
         {
-            return nodeOrder[start];
+            return new TreeNode(nodeOrder[start]);
         }
         else
         {
             int mid = (start+end)/2;
 
-            TreeNode* root = nodeOrder[mid];
-            root->left = build(nodeOrder, start, mid-1);
-            root->right = build(nodeOrder, mid+1, end);
+            TreeNode* root = new TreeNode(nodeOrder[mid]);
+            root->left = this->build(nodeOrder, start, mid-1);
+            root->right = this->build(nodeOrder, mid+1, end);
 
             return root;
         }
@@ -108,14 +118,45 @@ int main(int argc, char const *argv[])
     TreeNode two(2);
     TreeNode four(4);
 
-    three.left = &one;
     one.right = &two;
+    two.right = &three;
     three.right = &four;
 
     Solution balancer;
 
-    TreeNode* node = balancer.balanceBST(&three);
+    TreeNode* node = balancer.balanceBST(&one);
     balancer.levelPrint(node);
 
     return 0;
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// class Solution {
+// public:
+//     vector<int>a;
+//     void inorder(TreeNode*root)
+//     {
+//         if(root)
+//         {
+//             inorder(root->left);
+//             a.push_back(root->val);
+//             inorder(root->right);
+//         }
+//     }
+
+//     TreeNode* buildTree(int s, int e)
+//     {
+//         if(s > e) return NULL;
+//         int mid = (s+e)/2;
+//         TreeNode* root = new TreeNode(a[mid]);
+//         root->left = buildTree(s, mid-1);
+//         root->right = buildTree(mid+1, e);
+//         return root;
+//     }
+
+//     TreeNode* balanceBST(TreeNode* root) 
+//     {
+//         inorder(root);
+//         return buildTree(0, a.size()-1);
+//     }
+// };
