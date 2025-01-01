@@ -1,3 +1,8 @@
+# Bucket Sorting with Hashing
+    # first create a dictionary for the integer elements and their counts
+    # next create an array of arrays (buckets) with length = len(nums)+1
+        # the indicies of the buckets now correspond to 
+
 class Solution:
     def topKFrequent(self, nums: list[int], k: int) -> list[int]:
         
@@ -6,13 +11,8 @@ class Solution:
         
         for n in nums:
             counts[n] = counts.get(n, 0) + 1
-        
-        print(counts)
-
-        print(buckets)
         for value, cnt in counts.items():
             buckets[cnt].append(value)
-        print(buckets)
         
         answer = []
         for b in range(1, len(buckets)+1):
