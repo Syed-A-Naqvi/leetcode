@@ -25,10 +25,24 @@ class Solution:
                     seen.add(board[r][c])
         
         for square in range(9):
-            
+            seen = set()
+            for r in range(3):
+                for c in range(3):
+                    row = (square//3) * 3 + r
+                    col = (square%3) * 3 + c
+                    
+                    if (board[r][c] == "."):
+                        continue
+                    elif (board[r][c] in seen):
+                        return False
+                    else:
+                        seen.add(board[r][c])
+        
+        return True
 
 
-board = [["1","2",".",".","3",".",".",".","."],
+
+board = [["1","2",".",".","3","3",".",".","."],
          ["4",".",".","5",".",".",".",".","."],
          [".","9","8",".",".",".",".",".","3"],
          ["5",".",".",".","6",".",".",".","4"],
