@@ -1,4 +1,4 @@
-## Overview of Arrays and Hashing Data Structures
+## Overview of Array and Hash Table Data Structures
 
 ### Arrays
 An **array** is a collection of elements stored at contiguous memory locations. Arrays allow for efficient access to elements via indexing, making them a fundamental data structure in computer science.
@@ -28,5 +28,3 @@ Arrays and hashing are complementary tools in solving problems efficiently:
 
 1. **Arrays** provide a straightforward way to store ordered data and iterate over it.
 2. **Hashing** allows for quick lookups, avoiding the need to search through the entire data set.
-
-By combining these two structures, many problems can be solved in optimal time complexity.
