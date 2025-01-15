@@ -5,42 +5,28 @@ class Solution {
      */
     isValid(s){
 
-        let par_stack = []
-        let openBrackets = new Set(['(', '[', '{']);
-        let closeBrackets = new Set([')', ']', '}']);
-        
-        if (s == ''){
-            return true;
-        }
+        const stack = []
+        const bracketPairs = {
+            ')' : '(',
+            '}' : '{',
+            ']' : '['
+        };
 
-        for (let c of s){
-
-            if (openBrackets.has(c)){             
-                par_stack.push(c);
-            }
-            else if (closeBrackets.has(c)){
-                let open = par_stack.pop();
-                if (!open){
-                    return false; 
-                } else if(open == '(' && c != ')'){
-                    print();
-                    return false;
-                } else if(open == '[' && c != ']'){
-                    print();
-                    return false;
-                } else if(open == '{' && c != '}'){
-                    print();
+        for (const c of s) {
+            if(bracketPairs[c]){
+                if(stack.length > 0 && stack[stack.length - 1] === bracketPairs[c]){
+                    stack.pop();
+                }
+                else {
                     return false;
                 }
             }
+            else{
+                stack.push(c);
+            }
         }
-        
-        if (par_stack.length){
-            return false;
-        }
-        else {
-            return true;
-        }
+
+        return stack.length === 0;
 
     }
 }

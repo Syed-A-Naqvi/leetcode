@@ -12,41 +12,16 @@ The input string `s` is valid if and only if:
 
 Return `true` if `s` is a valid string, and `false` otherwise.
 
-## Hash Set Length
+## Bracket Stack
 
-The solution involves:
-1. Converting the array to a hash set.
-2. Comparing the length of the hash set to the length of the array.
+### Approach
 
-### Complexity
-- **Time Complexity**: `O(n)` where `n` is the number of elements in the array.
-- **Space Complexity**: `O(n)` for the hash set.
-
-## Hash Set
-
-The solution involves:
-1. Using a hash set to track seen elements.
-2. Checking for duplicates while iterating through the array.
+1. Initialize an empty stack and a bracket-pair hash map.
+2. Traverse the bracket string.
+3. If opening bracket is encountered, push onto stack.
+4. If stack is non-empty and last opening bracket on stack matches current closing bracket, pop last element from stack, else return false.
+5. After for loop, return false if stack non-empty, else return true.
 
 ### Complexity
-- **Time Complexity**: `O(n)` where `n` is the number of elements in the array.
-- **Space Complexity**: `O(n)` for the hash set.
-
-## Sorting
-
-The solution involves:
-1. Sorting the array.
-2. Checking for consecutive duplicate elements.
-
-### Complexity
-- **Time Complexity**: `O(n log n)` for sorting and `O(n)` for checking duplicates.
-- **Space Complexity**: `O(1)` if sorting in place, otherwise `O(n)`.
-
-## Brute Force
-
-The solution involves:
-1. Using nested loops to compare each element with every other element.
-
-### Complexity
-- **Time Complexity**: `O(n^2)` where `n` is the number of elements in the array.
-- **Space Complexity**: `O(1)` as no additional space is used.
+- **Time Complexity**: `O(n)` where `n` is the length of the parenthesis string.
+- **Space Complexity**: `O(n)` for the stack in worst case when all items are opening braces.
