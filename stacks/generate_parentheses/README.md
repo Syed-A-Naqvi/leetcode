@@ -1,39 +1,25 @@
-# Min Stack
+# Generate Parentheses
 
 ## Problem Description
 
-Design a stack class that supports the push, pop, top, and getMin operations.
+Given an integer `n`. Return all well-formed parentheses strings that you can generate with `n` pairs of parentheses.
 
-- MinStack() initializes the stack object.
-- void push(int val) pushes the element val onto the stack.
-- void pop() removes the element on the top of the stack.
-- int top() gets the top element of the stack.
-- int getMin() retrieves the minimum element in the stack.
+## Recursion
 
-Each function should run in O(1) time.
-
-## Double Stack
-
-1. Create two stacks, one for all values and one for minimum values.
-
-### push Method
-
-1. Push value onto regular stack.
-2. If minimum stack is empty, or top of minimum stack >= value being pushed, push value onto minimum stack.
-
-### pop Method
-
-1. Pop item from regular stack.
-2. If current minimum (top of minimum stack) === popped item, pop minimum stack.
-
-### top Method
-
-1. Return top element of regular stack without popping.
-
-### getMin Method
-
-1. Return the top element of the minimum stack without popping.
+1. Create a stack member for building the valid parentheses and an array to store the results.
+2. Using recursion, conduct a depth first search of the tree consisting of valid parenthesis:
+3. If number of opening parentheses < n
+    - push "(" onto the stack
+    - recursively call function again with number open parentheses += 1
+    - pop from the stack upon return
+4. If number of closing parentheses < number of opening parentheses
+    - push ")" onto the stack
+    - recursively call function again with number closed parentheses += 1
+    - pop from the stack upon return
+5. If number closing parentheses == number opening parentheses == n
+    - valid solution found
+    - append to results array
 
 ### Complexity
-- **Time Complexity**: `O(1)` all operations run in constant time.
-- **Space Complexity**: `O(2n)` will require 2n space in the worst case (i.e. elements pushed in descending order).
+- **Time Complexity**: `O($\frac{4^{n}}{\sqrt{n}}$)` recursive tree time complexity.
+- **Space Complexity**: `O(n)`algorithm requires at most 2n space in the stack for building valid parentheses.
