@@ -1,12 +1,12 @@
 package stacks.car_fleet;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 class Main {
     public static void main(String[] args){
         
-        int[] positions = {4,1,0,7};
-        int[] speed = {2,2,1,1};
+        int[] positions = {6,8};
+        int[] speed = {3,2};
 
         Solution mysol = new Solution();
 
@@ -42,18 +42,20 @@ class Solution {
     public int carFleet(int target, int[] position, int[] speed) {
         
         // sorting cars in order of furthest to closest to target
-        ArrayList<Car> cars = new ArrayList<>();
+        Car[] cars = new Car[position.length];
         for (int i = 0; i < speed.length; i++) {
-            cars.add(new Car(position[i], speed[i]));
+            cars[i] = new Car(position[i], speed[i]);
         }
-        cars.sort(null);
+        Arrays.sort(cars);
+
+        System.out.println(Arrays.toString(cars));
 
         int numFleets = 0;
-        int leaderETA = 0;
-        for (int i = cars.size()-1; i > -1; i--) {
+        float leaderETA = 0;
+        for (int i = cars.length-1; i > -1; i--) {
             
-            Car car = cars.get(i);
-            int currETA = (target - car.position) / car.speed;
+            Car car = cars[i];
+            float currETA = (float)(target - car.position) / car.speed;
 
             if (numFleets == 0) {
                 numFleets++;
