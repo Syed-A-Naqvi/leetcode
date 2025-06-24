@@ -1,53 +1,39 @@
-# Car Fleet Problem
+# Largest Rectangle in Histogram
 
 ## Problem Description
 
-There are `n` cars traveling to the same destination on a one-lane highway.
+You are given an array of integers `heights` where `heights[i]` represents the height of a bar. The width of each bar is `1`.
 
-You are given two arrays of integers `position` and `speed`, both of length `n`.
+Return the area of the largest rectangle that can be formed among the bars.
 
-- `position[i]` is the position of the `ith` car (in miles)
-- `speed[i]` is the speed of the `ith` car (in miles per hour)
+Note: This chart is known as a histogram.
 
-The destination is at position `target` miles.
+## Solution 1: Stacks
 
-A car can **not** pass another car ahead of it. It can only catch up to another car and then drive at the same speed as the car ahead of it.
+1. Create a new `Bar` class that stores the height and index of a bar.
 
-A **car fleet** is a non-empty set of cars driving at the same position and same speed. A single car is also considered a car fleet.
+2. Create a `bars` stack for `Bar` objects. 
 
-If a car catches up to a car fleet the moment the fleet reaches the destination, then the car is considered to be part of the fleet.
+2. Loop until `i` > `heights.length`:
+    - If `ith` height `==` current top of stack:
+      - increment `i`.
+      - set new effective index to `i`.
+    - If `ith` height `>` current top of stack:
+      - create and push a new bar onto stack at effective index.
+      - increment `i`.
+      - set the new effective index to `i`.
+    - If `ith` height `<` current top of stack:
+      - pop a bar off the stack and calculate area using height = `bar.height` and width = `i - bar.index`.
+      - index of popped bar is now the effective index.
+      - update current max area depending on calculated area.
 
-Return the number of different car fleets that will arrive at the destination.
+3. After heights array has been exhausted, loop until `bars` stack is empty:
+  - pop a bar off the stack and calculate area using height = `bar.height` and width = `i - bar.index`.
+  - update best area if appropriate.
 
-## Solution 1: Lists and Stacks
+4. return best area.
 
-1. Create a new car class with position and speed fields.
-2. Use provided position and speed arrays to create a single array of car objects in **O(n)** time.
-3. Sort the car object array in ascending order in **O(nlogn)** time.
-4. Create a new **fleet** stack
-5. Loop while **cars** array is not empty:
-- Use the car closest to the target (end of cars array), to calculate ETA: $\frac{(target - car.position)}{car.speed}$.
-- if the fleet stack is empty, pop the car off the cars array and insert into the fleet stack, this will be the leader of the current fleet.
-- if there already is a leader (fleet not empty) and the current car's ETA is <= leader's ETA, pop car off cars array and insert into fleet.
-- if current car's ETA > leader's ETA, this car will never catch up to the fleet; increment the number of fleets and clear the fleet stack
-5. After the loop exits, increment number of fleets by one to account for the last fleet remaining in the stack.
-6. return the number of fleets.
-
-### Complexity
-- **Time Complexity**: `O(nlogn)` sorting cars array will take at most `O(nlogn)` time.
-- **Space Complexity**: `O(n)` the combined arraylist and stack will never take more than `n` space where `n` is the amount of cars/positions/speeds.
-
-## Solution 2: Linear
-
-1. Create a new car class with position and speed fields.
-2. Use provided position and speed arrays to create a single array of car objects in **O(n)** time.
-3. Sort the car object array in ascending order of position (last car will be closest to target) in **O(nlogn)** time.
-4. Iterate over **cars** array in reverse order:
--  calculate ETA: $\frac{(target - car.position)}{car.speed}$ for current car.
-    - if no fleets have been counted yet, numFleets++ and current car becomes leader by default.
-- if current car's ETA is > leader's ETA, numFleets++ and curr car becomes new leader.
-6. return the number of fleets.
 
 ### Complexity
-- **Time Complexity**: `O(nlogn)` sorting cars array will take at most `O(nlogn)` time.
-- **Space Complexity**: `O(n)` cars arraylist will take additional `n` space where `n` is the amount of cars/positions/speeds.
+- **Time Complexity**: `O(n)`; in the worst case, each element of the heights array is processed twice `O(2n) = O(n)`.
+- **Space Complexity**: `O(n)` the stack will take at most and additional space of `n`.
