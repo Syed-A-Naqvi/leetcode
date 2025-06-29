@@ -1,66 +1,45 @@
 package two_pointers.valid_palindrome;
 
-import java.util.HashSet;
-
 public class Main {
 
     public static void main(String[] args) {
         
         Solution mysol = new Solution();
 
-        System.out.println(mysol.isPalindrome("Was it a car or a cat I saw?"));
-
+        System.out.println(mysol.isPalindrome(".,"));
     }
 }
 
 class Solution {
     public boolean isPalindrome(String s) {
-        
-        HashSet<Integer> chars = new HashSet<>();
-        HashSet<Integer> nums = new HashSet<>();
 
-        for (int i = 'A'; i < 'Z'+1; i++) {
-            chars.add(i);
-        }
-        for (int i = 'a'; i < 'z'+1; i++) {
-            chars.add(i);
-        }
-        for (int i = '0'; i < '9'+1; i++) {
-            nums.add(i);
-        }
+        // converting all letters to lowercase for simpler comparison conditions
+        s = s.toLowerCase();
 
-
+        // two pointers
         int i = 0, j = s.length()-1;
-        while (i < j) {
-            
-            while ( !(chars.contains((int)s.charAt(j)) || nums.contains((int)s.charAt(j))) ) {
-                j--;
-            }
-            while ( !(chars.contains((int)s.charAt(i)) || nums.contains((int)s.charAt(i))) ) {
+
+        while (i < s.length() && j > -1 && i < j) {
+            if ( !((s.charAt(i) >= 'a' && s.charAt(i) <= 'z') || (s.charAt(i) >= '0' && s.charAt(i) <= '9'))) {
+                System.out.println(s.charAt(i) + " is not alphanumeric, incrementing i.");
                 i++;
+                continue;
+            }
+            if ( !((s.charAt(j) >= 'a' && s.charAt(j) <= 'z') || (s.charAt(j) >= '0' && s.charAt(j) <= '9'))) {
+                System.out.println(s.charAt(j) + " is not alphanumeric, decrementing j.");
+                j--;
+                continue;
             }
 
-            if (j < 0 || i > s.length()-1) {
+            if (s.charAt(i) != s.charAt(j)) {
+                System.out.println(s.charAt(i) + " not equal to " + s.charAt(j));
                 return false;
             }
-
-            int a = s.charAt(i), b = s.charAt(j);
-
-            if (nums.contains(a) && nums.contains(b) && (a != b)) {
-                System.out.println((char)a + " and " + (char)b + " not same num.");
-                return false;
-            }
-            else if (chars.contains(a) && chars.contains(b) && ((a - b) % 32 != 0) ) {
-                System.out.println((char)a + " and " + (char)b + " not same char.");
-                return false;
-            }
-            else if ( (chars.contains(a) && nums.contains(b)) || (chars.contains(b) && nums.contains(a)) ) {
-                System.out.println((char)a + " and " + (char)b + " not both char or num.");
-                return false;
-            }
-
-            i++;
+            
+            System.out.println(s.charAt(i) + " equals  " + s.charAt(j));
+            
             j--;
+            i++;
 
         }
 
