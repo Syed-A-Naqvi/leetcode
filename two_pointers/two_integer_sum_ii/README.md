@@ -27,15 +27,17 @@ Constraints:
 - `1000 <= target <= 1000`
 
 
-## Solution 1: Lists and Stacks
+## Solution 1
 
-1. Immediately convert string to lowercase for fewer interval checks. `O(n)`
-2. Create two pointers, pointing to first and last string indices.
-3. Loop while both pointers are within string index bounds and lower pointer is less than upper pointer. O(n) since each pointer covers half the string.
-    - if a pointer pointes to a non-alphanumeric character, incremenet/decrement the pointer as apporopriate.
-    - if both pointers point to alpha characters, return `false` if they are different.
-4. If no mismatch was found for the entire string, string is a palindrome, return `true`.
+1. Create two pointers `i` and `j` pointing to the first and last elements of the array respectively.
+2. Loop while `i < j`:
+    - Compare `value = target - array[i]` with `array[j]`
+        - if `value < array[j]` then `j--`
+        - if `value > array[j]` then `i++`
+        - if `value == array[j]` then we have found the sum; return `[i+1, j+1]` due to 1-indexing
+    - *note that array being non-increasing means it is guranteed that `array[i] <= array[i+1]` and `array[j] <= array[j+1]`
+
 
 ### Complexity
-- **Time Complexity**: `O(2n) = O(n)` two consecutive string traversals.
-- **Space Complexity**: `O(1)` no variable space used.
+- **Time Complexity**: the two pointers both account for `n/2` iterations $\rightarrow$ `O(n)`.
+- **Space Complexity**: `O(1)` constant amount of pointers used.
