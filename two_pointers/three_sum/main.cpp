@@ -26,8 +26,9 @@ class Solution
                 int target = -nums[i];
                 
                 printf("i=%d, j=%d, k=%d\n", i, j, k);
+
                 // skipping duplicate values
-                if ( (i > 0) && (nums[i] == nums[i-1]) && (nums[j] == nums[j-1])){
+                if ( (i > 0) && (nums[i] == nums[i-1]) ){
                     continue;
                 }
 
@@ -40,8 +41,14 @@ class Solution
                         k--;
                     }
                     else {
-                        solutions.push_back(std::vector<int>{nums[i], nums[j], nums[k]});
-                        break;
+
+                        std::vector<int> solution = {nums[i], nums[j], nums[k]};
+
+                        if (solutions.empty() || nums[i] != solutions.back()[0] && nums[j] != solutions.back()[1]) {
+                            solutions.push_back(solution);
+                        }
+                        // does not matter if we increment j or decrement k, just need the loop to keep moving
+                        j++;
                     }
                 }
             }
@@ -54,7 +61,7 @@ class Solution
 
 int main(int argc, char const *argv[])
 {
-    std::vector<int> nums = {-1,0,1,2,-1,-4};
+    std::vector<int> nums = {0,0,0,0};
     Solution mysol;
     std::vector<std::vector<int>> solution = mysol.threeSum(nums);
 
