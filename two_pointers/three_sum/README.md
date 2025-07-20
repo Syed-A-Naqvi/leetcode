@@ -45,7 +45,7 @@ Constraints:
 1. Sort the array. `O(nlogn)`
 2. Outer for loop iterates over entire array once:
     - for each element, run the two_sum_2 logic on remainder of array
-    - this is effectively `O(n)` for each of the `n` elements of the array $\rightarrow$ `O($n^2$)`.
+    - this is effectively `O(n)` for each of the `n` elements of the array $\rightarrow$ $O(n^{2})$.
     - once a triplet is found, push into result set
 
 

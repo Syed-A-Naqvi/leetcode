@@ -2,7 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <unordered_set>
 #include "../../cusutils.hpp"
+
 
 class Solution
 {
@@ -12,7 +14,7 @@ class Solution
             // sorting the vector in non-decreasing order for easier processing O(nlogn)
             std::sort(nums.begin(), nums.end());
 
-            std::vector<std::vector<int>> solutions;
+            std::unordered_set<std::vector<int>, VectorHasher> solution_set;
 
             std::cout << vec_to_string(nums) << std::endl;
             
@@ -20,17 +22,12 @@ class Solution
             for (size_t i = 0; i < nums.size(); i++)
             {
 
-                // pointers
+                // pointers and sum target
                 int j = i+1;
                 int k = nums.size()-1;
                 int target = -nums[i];
                 
                 printf("i=%d, j=%d, k=%d\n", i, j, k);
-
-                // skipping duplicate values
-                if ( (i > 0) && (nums[i] == nums[i-1]) ){
-                    continue;
-                }
 
                 while (j < k)
                 {
@@ -43,19 +40,37 @@ class Solution
                     else {
 
                         std::vector<int> solution = {nums[i], nums[j], nums[k]};
+                        solution_set.insert(solution);
 
-                        if (solutions.empty() || nums[i] != solutions.back()[0] && nums[j] != solutions.back()[1]) {
-                            solutions.push_back(solution);
-                        }
                         // does not matter if we increment j or decrement k, just need the loop to keep moving
                         j++;
                     }
                 }
             }
 
+            std::vector<std::vector<int>> solutions;
+            for (auto& v : solution_set){
+                solutions.push_back(v);
+            }
+
             return solutions;
             
         }
+
+        struct VectorHasher
+        {
+            std::size_t operator()(const std::vector<int>& vec) const {
+                std::size_t sum = 0;
+                std::size_t t = 0;
+            
+                for (auto& n : vec) {
+                    t = n*n;
+                    sum += t;
+                }
+            
+                return sum;
+            }
+        };
 
 };
 
