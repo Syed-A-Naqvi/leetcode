@@ -43,12 +43,18 @@ Constraints:
 ## Solution 1
 
 1. Sort the array. `O(nlogn)`
-2. Outer for loop iterates over entire array once:
-    - for each element, run the two_sum_2 logic on remainder of array
-    - this is effectively `O(n)` for each of the `n` elements of the array $\rightarrow$ $O(n^{2})$.
-    - once a triplet is found, push into result set
+
+2. Implement a `functor` struct that hashes three-element vectors and create a c++ unordered set for maintaining a duplcate-free solution set.
+
+3. Iterate for `i` over entire array once (`O(n)`):
+    - Let `-vec[i] = target` for the current iteration.
+    - using two pointers `j`, `k`, search the subsequent part of the array for two values that sum to `target` while `j < k`.
+    - `j++` if `sum < target` and `k--` if `sum > target` (two sum logic).
+    - each pointer searches half the remainder of the array $\rightarrow$ `O(1/2 n) + O(1/2 n)` $\rightarrow$ `O(n)`.
+    - if a sum is found, create a new solution `[vec[i], vec[j], vec[k]]` and push into the solution set.
+4. once the outer loop terminates, return the solution set.
 
 
 ### Complexity
-- **Time Complexity**: the two pointers both account for `n/2` iterations $\rightarrow$ `O(n)`.
+- **Time Complexity**: Outer loop + inner loop $\rightarrow O(n^2)$.
 - **Space Complexity**: `O(1)` constant amount of pointers used.
