@@ -57,4 +57,4 @@ Constraints:
 
 ### Complexity
 - **Time Complexity**: Outer loop + inner loop $\rightarrow O(n^2)$.
-- **Space Complexity**: `O(1)` constant amount of pointers used.
+- **Space Complexity**: `O(n)` in the case all elements are part of a solution.
