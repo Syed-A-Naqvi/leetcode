@@ -57,4 +57,34 @@ Constraints:
 
 ### Complexity
 - **Time Complexity**: Outer loop + inner loop $\rightarrow O(n^2)$.
-- **Space Complexity**: `O(n)` in the case all elements are part of a solution.
+- **Space Complexity**: In the case all elements are part of a solution, `O(n)` for the hash set and `O(n)` for the final 2d vector $\rightarrow$ `O(2n)`,.
+
+
+## Solution 2
+
+1. Sort the array. `O(nlogn)`
+
+2. If the array has fewer than 3 elements return an empty solution set.
+
+3. Iterate for `i` over entire array once (`O(n)`):
+    
+    - if `i > 0` and `nums[i] == nums[i-1]` skip the current iteration as we have already considered this value for the first pointer.
+    
+    - create pointers `j = i+1` and `k = nums.size()-1`
+
+    4. Loop while `j < k`:
+        
+        - `j++` and continue if `j > i+1` and `nums[j] == nums[j-1]` or if `nums[i] + nums[j] + nums[k] < 0` since either `nums[j]` has already been considered for `j` or the sum is too small.
+
+        - `k--` and continue if `k < nums.size()-1` and `nums[k] == nums[k+1]` or if `nums[i] + nums[j] + nums[k]) > 0` since either `nums[k]` has already been considered for `k` or the sum is too large.
+
+        - each pointer searches half the remainder of the array $\rightarrow$ `O(1/2 n) + O(1/2 n)` $\rightarrow$ `O(n)`.
+
+        - if a sum is found, create a new solution `[nums[i], nums[j], nums[k]]` and push into the solution set.
+
+5. Since the array was sorted, skipping values already considered for each pointer ensures there are no duplicate solutions in the solution set.
+
+
+### Complexity
+- **Time Complexity**: Outer loop + inner loop $\rightarrow O(n^2)$.
+- **Space Complexity**: `O(n)` for the 2d solution vector in the case all elements are part of a solution.
