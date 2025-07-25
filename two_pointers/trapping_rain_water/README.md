@@ -1,36 +1,21 @@
-# Container With Most Water
+# Trapping Rain Water
 
 ## Problem Description
 
-You are given an integer array `heights` where `heights[i]` represents the height of the $i^{th}$ bar.
+You are given an array of non-negative integers `height` which represent an elevation map. Each value `height[i]` represents the height of a bar, which has a width of `1`.
 
-You may choose any two bars to form a container. Return the *maximum* amount of water a container can store.
+Return the maximum area of water that can be trapped between the bars.
 
 #### Example 1:
 ```
-Input: height = [1,7,2,5,4,7,3,6]
+Input: height = [0,2,0,3,1,0,1,3,2,1]
 
-Output: 36
-```
-
-#### Example 2:
-```
-Input: height = [2,2,2]
-
-Output: 4
-```
-
-#### Example 3:
-```
-Input: nums = [0,0,0]
-
-Output: [[0,0,0]]
+Output: 9
 ```
 
 #### Constraints:
-- `2 <= height.length <= 1000`
+- `1 <= height.length <= 1000`
 - `0 <= height[i] <= 1000`
-
 
 
 ## Solution 1
