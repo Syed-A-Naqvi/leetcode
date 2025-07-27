@@ -1,0 +1,24 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "This repository contains solutions to a variety of LeetCode problems, organized by topic. The goal is to document a structured approach in the pursuit of mastering data structures and algorithms, which form the foundation of computer science and software development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syed-A-Naqvi/leetcode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Syed-A-Naqvi/leetcode/issues"
+  },
+  "homepage": "https://github.com/Syed-A-Naqvi/leetcode#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
