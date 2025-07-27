@@ -1,5 +1,4 @@
 leetcode-venv/
 .env
 .vscode/
-node_modules
-two_pointers/trapping_rain_water/trapping_rain.js
+node_modules/
