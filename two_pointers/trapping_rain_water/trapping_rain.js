@@ -5,26 +5,30 @@ class Solution {
      */
     trap(height) {
 
-        let maxHeights = [0,0];
-        let pointers = [0, height.length-1];
+        let max_left = 0;
+        let max_right = 0;
+        let l = 0;
+        let r = height.length-1;
         let totalTrapped = 0;
 
-        while(pointers[0] < pointers[1]) {
+        while(l < r) {
 
-            let p;
-            height[pointers[0]] < height[pointers[1]] ? p = 0 : p = 1;
+            if(height[l] < height[r]){
 
-            let water = maxHeights[p] - height[pointers[p]]
-
-            if(water > 0) {
-                totalTrapped += water;
+                let trapped = max_left - height[l];
+                if(trapped > 0) {totalTrapped += trapped;}
+                if(max_left < height[l]) {max_left = height[l];}
+                l++;
+            
             }
+            else {
 
-            if (maxHeights[p] < height[pointers[p]]) {
-                maxHeights[p] = height[pointers[p]];
+                let trapped = max_right - height[r];
+                if(trapped > 0) {totalTrapped += trapped;}
+                if(max_right < height[r]) {max_right = height[r];}
+                r--;
+            
             }
-
-            (p == 0) ? pointers[p]++ : pointers[p]--;
 
         }
 
