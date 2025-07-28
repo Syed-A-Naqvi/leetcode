@@ -43,5 +43,5 @@ Output: 9
 3. return `total_trapped`
 
 ### Complexity
-- **Time Complexity**: Total number of elements traversed by each pointer is `n` $\rightarrow$ `O(n)`.
+- **Time Complexity**: Total combined elements traversed by both pointers is `n` $\rightarrow$ `O(n)`.
 - **Space Complexity**: Constant number of additional variables created $\rightarrow$ `O(1)`.
