@@ -35,26 +35,29 @@ Output: 25
 
 ## Solution 1
 
-**Approach**: Very similar to 1d binary search; maintain three pointers: m, l, and r for the middle, left and right indices of the poriton of the matrix under consideration. Read left-right, top-bottom, we treat the matrix as a single dimension array of size `h*n`. To convert a single dimension index `i` into 2d indices `j`, `k` we perform the calculations `j = Math.floor(i / n)` and `k = i - j*n`. Through this conversion, we are able to abstract away the 2d matrix indexing allowing the algorithm to function as a typical finary search. 
+**Approach**: We perform a binary search for `k` values over the range `[0, max(piles)]`. We consider the upper-half of `piles` if the required hours given the current `k` value exceed `h` and consider the lower half when required hours are `<= h`, updating the minimum `k` value as appropriate.
+```
+#we can initialize min_k = r as it gurantees h = piles.length
+1. r = max(piles), min_k = r, l = 0
 
-1. Create a function `getMatrixIdxs` that converts a 1d array index `i` into 2d indices `j, k` given the number of columns in the matrix:
-- `j = Math.floor(i/n)`
-- `k = i - j*n`
-- return `[j, k]`
+2. while (l <= r):
+    
+    set k = int( (l+r)/2 ), curr_h = 0
+    
+    for i in [0, piles.length]:
+        curr_h += ceiling(piles[i]/k)
+    
+    if(curr_h <= h):
+        # we can afford to reduce k -> search lower half
+        r = k-1
+        min_k = k
+    else:
+        # k is too small -> search upper half
+        l = k+1
 
-2. Initialize `h = matrix.length`, `n = matrix[0].length`, `l = 0`, `r = (h*n) - 1`.
-
-3. While (`l <= r`):
-    - `m = floot( (l+r) / 2)`
-    - `j = getMatrixIdxs(n, m)[0]`
-    - `k = getMatrixIdxs(n, m)[1]`
-    - `if (matrix[j][k] == target) {return true}`
-    - `if (matrix[j][k] < target) {l = m+1}`
-    - `if (matrix[j][k] > target) {r = m-1}`
-
-2. return `false`.
-
+3. return min_k
+```
 
 #### Complexity
-- **Time Complexity**: Each iteration divides the total number of elements by two which means there are at most $log_2(h*n)$ constant time iterations $\rightarrow$ $O(log_2(m*n))$.
+- **Time Complexity**: $O(\log_{2}m)$ iterations of binary search where $m$ is the max value in `piles` and $O(n)$ time per binary search iteration where $n$ is the length of `piles` $\rightarrow O(n\log_{2}m)$.
 - **Space Complexity**: Constant number of additional variables created $\rightarrow$ `O(1)`.
