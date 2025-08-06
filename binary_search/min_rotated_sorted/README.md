@@ -42,12 +42,11 @@ Output: 4
 
 ## Solution 1
 
-**Approach**: We perform a binary search for `k` values over the range `[0, max(piles)]`. We consider the upper-half of `piles` if the required hours given the current `k` value exceed `h` and consider the lower half when required hours are `<= h`, updating the minimum `k` value as appropriate.
+**Approach**: We begin with a binary search setup with pointers `l, m, r` and loop while `l < r`. We define `m` as $\lfloor (l+r) / 2 \rfloor$ which ensures `m < r` for the duration of the loop. The goal is to position the `l` pointer on the minimum value in the array. If `nums[m] < nums[r]` then either `nums[m]` is the minimum or the minimum is to the left of `m`; we thus set `r = m`. If `numns[m] > nums[r]` then we know the minimum must be to the right of `m` and we set `l = m+1`. Since we only increment `l` **once** past `m` when we know the minimum is to the right of `m`, we guarantee the algorithm converges to `l=r` when `l` points to the minimum at which point we return `l`.
 ```
-#we can initialize min_k = r as it gurantees h = piles.length
-1. r = max(piles), min_k = r, l = 0
+1. l = 0, r = nums.length-1
 
-2. while (l <= r):
+2. while (l < r):
     
     set k = int( (l+r)/2 ), curr_h = 0
     
