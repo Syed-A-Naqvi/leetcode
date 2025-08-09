@@ -37,9 +37,10 @@ Output: -1
 
 ## Solution 1
 
-**Approach**: We begin with a binary search setup with pointers `l, m, r` and loop while `l < r`. We define `m` as $\lfloor (l+r) / 2 \rfloor$ which ensures `m < r` for the duration of the loop. The goal is to position the `l` pointer on the minimum value in the array. If `nums[m] < nums[r]` then either `nums[m]` is the minimum or the minimum is to the left of `m`; we thus set `r = m`. If `numns[m] > nums[r]` then we know the minimum must be to the right of `m` and we set `l = m+1`. Since we only increment `l` **once** past `m` when we know the minimum is to the right of `m`, we guarantee the algorithm converges to `l=r` when `l` points to the minimum at which point we return `l`.
+**Approach**: Our first step is to determine the index of the smallest element in $O(\log_{2}n)$ which gives us the offset by which the indices have been rotated. We then conduct a typical binary search and use the offset of the midpoint; `(midpoint + offset) % array.length` for the comparison calculations to account for the rotation. 
 ```
-1. l = 0, r = nums.length-1
+# finding the offset
+1. l = 0, m = 0, r = nums.length-1
 
 2. while (l < r):
     
@@ -48,11 +49,30 @@ Output: -1
     if(nums[m] < r):
         r = m
     else:
-        l = m+1
+        l = m + 1
 
-3. return nums[l]
+# binary search
+3. offset = l, m_off = 0, l = 0, m = 0, r = nums.length-1
+
+4. while (l <= r):
+    m = floor( (l+r)/2 )
+    m_off = (m + offset) % nums.length
+
+    if (nums[m_off] == target) {
+        return m_off
+    }
+    else if (nums[m_off] < target) {
+        l = m + 1
+    }
+    if (nums[m_off] > target) {
+        r = m - 1
+    }
+
+# return -1 if target not found in the array
+5. return -1
+
 ```
 
 #### Complexity
-- **Time Complexity**: $O(\log_{2}m)$ iterations of binary search for min array value.
+- **Time Complexity**: $O(\log_{2}n)$ time to find offset and $O(\log_{2}n)$ to find target $\rightarrow O(2\log_{2}n) \rightarrow O(\log_{2}n)$.
 - **Space Complexity**: Constant number of additional variables created $\rightarrow$ `O(1)`.
