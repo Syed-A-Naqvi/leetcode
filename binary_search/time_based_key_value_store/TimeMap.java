@@ -12,13 +12,19 @@ public class TimeMap {
     }
 
     public void set(String key, String value, int timestamp) {
-        this.timedItems.get(key).add(new Pair(value, timestamp));
+
+        if (this.timedItems.get(key) != null) {
+            this.timedItems.get(key).add(new Pair(value, timestamp));
+        }
+        else {
+            ArrayList<Pair> temp = new ArrayList<>();
+            temp.add(new Pair(value, timestamp));
+            this.timedItems.put(key, temp);
+        }
     }
 
     public void get(String key, int timestamp) {
         ArrayList<Pair> values = timedItems.get(key);
-
-        
 
         int l = 0, m = 0, r = values.size()-1;
 
