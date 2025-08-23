@@ -23,16 +23,37 @@ public class TimeMap {
         }
     }
 
-    public void get(String key, int timestamp) {
-        ArrayList<Pair> values = timedItems.get(key);
+    public String get(String key, int timestamp) {
 
+        ArrayList<Pair> values = timedItems.get(key);
+        if (values == null) {
+            return "";
+        }
+        
         int l = 0, m = 0, r = values.size()-1;
 
-        while(l <= r) {
+        if (values.get(l).time() > timestamp) {
+            return "";
+        }
+        else if (values.get(r).time() <= timestamp) {
+            return values.get(r).value();
+        }
+
+        while(l < r) {
             m = (l + r) / 2;
 
-            if (values.get(m) < values )
+            if ((values.get(m).time() == timestamp) || (m == l)) {
+                return values.get(m).value();
+            }
+            else if (values.get(m).time() < timestamp) {
+                l = m;
+            }
+            else if (values.get(m).time() > timestamp) {
+                r = m;
+            }
         }
+
+        return "something went wrong.";
     }
 }
 
