@@ -1,6 +1,6 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
-title: "Database & Programming Practice"
+title: "Databases & Programming Practice"
 description: "A repository containing documented solutions to a variety of database querying, design, modelling and management problems in addition to data structuress & algorithms programming practice."
 author: "Arham Naqvi"
 logo: "logo.png"
