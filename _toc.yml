@@ -1,0 +1,76 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: README
+
+chapters:
+  # ========================================
+  # SQL
+  # ========================================
+  - file: practice/sql/README
+    sections:
+      - file: practice/sql/combine_two_tables
+      - file: practice/sql/consecutive_numbers
+      - file: practice/sql/customers_who_never_order
+      - file: practice/sql/delete_duplicate_emails
+      - file: practice/sql/duplicate_emails
+      - file: practice/sql/employee_bonus
+      - file: practice/sql/employees_earning
+      - file: practice/sql/gameplay_analysis_I
+      - file: practice/sql/highest_dept_salary
+      - file: practice/sql/nth_highest_salary
+      - file: practice/sql/rank_scores
+      - file: practice/sql/rising_temperatures
+      - file: practice/sql/second_highest_salary
+
+  # ========================================
+  # Arrays and Hashing
+  # ========================================
+  - file: practice/arrays_and_hashing/README
+    sections:
+      - file: practice/arrays_and_hashing/array_product_except_self/README
+      - file: practice/arrays_and_hashing/contains_duplicate/README
+      - file: practice/arrays_and_hashing/encode_decode_strings/README
+      - file: practice/arrays_and_hashing/group_anagrams/README
+      - file: practice/arrays_and_hashing/k_frequent_elements/README
+      - file: practice/arrays_and_hashing/longest_consecutive_subsequence/README
+      - file: practice/arrays_and_hashing/two_sum/README
+      - file: practice/arrays_and_hashing/valid_anagram/README
+      - file: practice/arrays_and_hashing/valid_soduko/README
+
+  # ========================================
+  # Binary Search
+  # ========================================
+  - file: practice/binary_search/README
+    sections:
+      - file: practice/binary_search/2d_matrix_search/README
+      - file: practice/binary_search/binary_search/README
+      - file: practice/binary_search/koko_eating_bananas/README
+      - file: practice/binary_search/min_rotated_sorted/README
+      - file: practice/binary_search/rotated_sorted_array_search/README
+      - file: practice/binary_search/time_based_key_value_store/README
+
+  # ========================================
+  # Stacks
+  # ========================================
+  - file: practice/stacks/README
+    sections:
+      - file: practice/stacks/car_fleet/README
+      - file: practice/stacks/daily_temperatures/README
+      - file: practice/stacks/generate_parentheses/README
+      - file: practice/stacks/largest_rectangle/README
+      - file: practice/stacks/minstack/README
+      - file: practice/stacks/reverse_polish_notation/README
+      - file: practice/stacks/valid_parenthesis/README
+
+  # ========================================
+  # Two Pointers
+  # ========================================
+  - file: practice/two_pointers/README
+    sections:
+      - file: practice/two_pointers/most_water_container/README
+      - file: practice/two_pointers/three_sum/README
+      - file: practice/two_pointers/trapping_rain_water/README
+      - file: practice/two_pointers/two_integer_sum_ii/README
+      - file: practice/two_pointers/valid_palindrome/README

@@ -1,4 +1,10 @@
-leetcode-venv/
-.env
-.vscode/
-node_modules/
+# ignoring build files
+_build/
+
+# ignoring sphinx config
+conf.py
+
+practice/leetcode-venv/
+practice/.env
+practice/.vscode/
+practice/node_modules/

@@ -1,6 +1,7 @@
-## Overview of Array and Hash Table Data Structures
+# Overview of Array and Hash Table Data Structures
 
-### Arrays
+## Arrays
+
 An **array** is a collection of elements stored at contiguous memory locations. Arrays allow for efficient access to elements via indexing, making them a fundamental data structure in computer science.
 
 - **Strengths**:
@@ -11,7 +12,8 @@ An **array** is a collection of elements stored at contiguous memory locations. 
   - Fixed size in many implementations, requiring resizing for dynamic storage.
   - Insertion and deletion (except at the end) can be costly (`O(n)`).
 
-### Hash Maps and Hash Sets
+## Hash Maps and Hash Sets
+
 A **hash map** (or dictionary) is a data structure that maps keys to values using a hashing function. A **hash set** is a simplified version that stores unique elements without key-value pairs.
 
 - **Hash Map**:
