@@ -10,23 +10,23 @@
 
 ## Overview 🎯
 
-This repository tackles a large variety of practice database management and programming problems. The documentation is organized by **problem type** and moves from problem description $\rightarrow$ problem solution $\rightarrow$ solution analysis.
+This repository tackles a large variety of practice database management and programming problems. The documentation is organized by **problem type** and moves from **problem description** $\rightarrow$ **problem solution** $\rightarrow$ **solution analysis.**
 
 ## Quick Stats ✅
 
 ::::{grid} 1 1 2 3
 
-:::{card}
+:::{grid-item-card}
 :header: Problems 💡
 **73** probelms completed with documented solutions.
 :::
 
-:::{card}
+:::{grid-item-card}
 :header: Databases ⛁
 Database solutions involve creation and management of local database files, execution of queries and include design/modeling diagrams.
 :::
 
-:::{card}
+:::{grid-item-card}
 :header: Languages </>
 Problems solved in C++, Java, JavaScript, Python and SQL.
 :::
