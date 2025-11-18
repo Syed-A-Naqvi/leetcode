@@ -1,6 +1,6 @@
-# Jupyter Book Template for Data Science Projects
+# Databases & Programming Practice
 
-**A Jupyter Book template for data science projects with GitHub Pages deployment and automated portfolio integration/updating using GitHub Actions.**
+**A repository containing documented solutions to a variety of database querying, design, modelling and management problems in addition to data structuress & algorithms programming practice.**
 
 *Author: Arham Naqvi*
 
