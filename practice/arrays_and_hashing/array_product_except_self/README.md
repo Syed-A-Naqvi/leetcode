@@ -1,8 +1,8 @@
 # Product of Array Except Self
 
 ## Problem Description
-Given an array `nums`, return an array `output` where each element at index `i` is the product of all elements in `nums` except the one at index `i`. Division is not allowed, and the solution must run in `O(n)` time complexity.
 
+Given an array `nums`, return an array `output` where each element at index `i` is the product of all elements in `nums` except the one at index `i`. Division is not allowed, and the solution must run in `O(n)` time complexity.
 
 ## Dynamic Programming
 
@@ -16,5 +16,7 @@ Given an array `nums`, return an array `output` where each element at index `i` 
    - For all other indices, multiply the prefix of the previous index with the postfix of the next index.
 
 ## Complexity
+
 - **Time Complexity**: `O(n)` since we traverse the array three times—once for `pref`, once for `post`, and once for constructing `output`.
+
 - **Space Complexity**: `O(n)` due to the additional space used by the `pref` and `post` arrays.

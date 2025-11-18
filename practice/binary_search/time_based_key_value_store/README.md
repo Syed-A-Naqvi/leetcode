@@ -16,7 +16,8 @@ Implement the `TimeMap` class:
 Note: For all calls to set, the timestamps are in strictly increasing order.
 
 Example 1:
-```
+
+```markdown
 Input:
 ["TimeMap", "set", ["alice", "happy", 1], "get", ["alice", 1], "get", ["alice", 2], "set", ["alice", "sad", 3], "get", ["alice", 3]]
 
@@ -38,7 +39,7 @@ Constraints:
 - `key` and `value` only include lowercase English letters and digits.
 - `1 <= timestamp <= 1000`
 
+### Complexity
 
-#### Complexity
 - **Time Complexity**: $O(\log_{2}n)$ time to find offset and $O(\log_{2}n)$ to find target $\rightarrow O(2\log_{2}n) \rightarrow O(\log_{2}n)$.
 - **Space Complexity**: Constant number of additional variables created $\rightarrow$ `O(1)`.
