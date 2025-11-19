@@ -1,4 +1,4 @@
-# Database Querying, Design/Modelling and Management
+# SQL
 
 ## Structured Query Language (SQL)
 

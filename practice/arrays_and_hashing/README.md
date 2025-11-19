@@ -1,4 +1,4 @@
-# Overview of Array and Hash Table Data Structures
+# Array and Hash Table Data Structures
 
 ## Arrays
 

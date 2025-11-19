@@ -17,6 +17,7 @@ exclude_patterns:
   - "raw_data/*"                          # Unprocessed data files
   - ".github/*"                           # GitHub workflows
   - "practice/leetcode-venv"              # Virtual environment
+  - "practice/node_modules"               # node packages
 
 # See https://jupyterbook.org/content/execute.html
 execute:

@@ -1,4 +1,4 @@
-# Overview of Two Pointer Approach
+# Two Pointer Approach
 
 ## Core Concept
 

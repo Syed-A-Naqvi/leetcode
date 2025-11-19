@@ -1,4 +1,4 @@
-# Overview of Binary Search Algorithms
+# Binary Search Algorithms
 
 ## Core Concept
 

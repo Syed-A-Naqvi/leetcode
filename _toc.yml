@@ -57,7 +57,7 @@ chapters:
   - file: practice/stacks/README
     sections:
       - file: practice/stacks/car_fleet/README
-      - file: practice/stacks/daily_temperatures/README
+      - file: practice/stacks/daily_temperatures/c++/README
       - file: practice/stacks/generate_parentheses/README
       - file: practice/stacks/largest_rectangle/README
       - file: practice/stacks/minstack/README

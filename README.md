@@ -1,4 +1,4 @@
-# Databases & Programming Practice
+# Database & Programming Practice
 
 **A repository containing documented solutions to a variety of database querying, design, modelling and management problems in addition to data structuress & algorithms programming practice.**
 
@@ -17,17 +17,26 @@ This repository tackles a large variety of practice database management and prog
 ::::{grid} 1 1 2 3
 
 :::{grid-item-card}
-:header: Problems 💡
+:class-header: sd-bg-dark
+
+Problems 💡
+^^^
 **73** probelms completed with documented solutions.
 :::
 
 :::{grid-item-card}
-:header: Databases ⛁
-Database solutions involve creation and management of local database files, execution of queries and include design/modeling diagrams.
+:class-header: sd-bg-dark
+
+Databases ⛁
+^^^
+Each solution creates and manages local database files, executes queries and includes design/modeling diagrams.
 :::
 
 :::{grid-item-card}
-:header: Languages </>
+:class-header: sd-bg-dark
+
+Languages </>
+^^^
 Problems solved in C++, Java, JavaScript, Python and SQL.
 :::
 
