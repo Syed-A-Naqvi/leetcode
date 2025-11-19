@@ -17,7 +17,7 @@ This repository tackles a large variety of practice database management and prog
 ::::{grid} 1 1 2 3
 
 :::{grid-item-card}
-:class-header: sd-bg-dark
+:class-header: bg-primary
 
 Problems 💡
 ^^^
@@ -25,7 +25,7 @@ Problems 💡
 :::
 
 :::{grid-item-card}
-:class-header: sd-bg-dark
+:class-header: bg-primary
 
 Databases ⛁
 ^^^
@@ -33,7 +33,7 @@ Each solution creates and manages local database files, executes queries and inc
 :::
 
 :::{grid-item-card}
-:class-header: sd-bg-dark
+:class-header: bg-primary
 
 Languages </>
 ^^^
