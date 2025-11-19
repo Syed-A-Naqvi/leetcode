@@ -18,5 +18,6 @@ Note: Alphanumeric characters consist of letters `(A-Z, a-z)` and numbers `(0-9)
 4. If no mismatch was found for the entire string, string is a palindrome, return `true`.
 
 ### Complexity
+
 - **Time Complexity**: `O(2n) = O(n)` two consecutive string traversals.
 - **Space Complexity**: `O(1)` no variable space used.

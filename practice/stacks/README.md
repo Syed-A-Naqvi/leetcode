@@ -1,6 +1,7 @@
-## Overview of Stack Data Structure
+# Overview of Stack Data Structure
 
-### Stack
+## Stack
+
 A **stack** is a linear data structure that follows the **Last In, First Out (LIFO)** principle. This means that the last element added to the stack is the first one to be removed. It is analogous to a stack of plates where you can only add or remove plates from the top.
 
 - **Strengths**:
@@ -13,12 +14,14 @@ A **stack** is a linear data structure that follows the **Last In, First Out (LI
   - Not suitable for problems requiring random or sequential access to all elements.
 
 ### Key Operations
+
 1. **Push**: Adds an element to the top of the stack.
 2. **Pop**: Removes the element from the top of the stack.
 3. **Peek/Top**: Retrieves the element at the top without removing it.
 4. **isEmpty**: Checks if the stack is empty.
 
 ### Variations of Stack
+
 - **Array-Based Stack**:
   - Implemented using an array.
   - Fixed size unless resized dynamically.

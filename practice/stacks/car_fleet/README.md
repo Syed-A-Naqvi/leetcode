@@ -26,14 +26,17 @@ Return the number of different car fleets that will arrive at the destination.
 3. Sort the car object array in ascending order in **O(nlogn)** time.
 4. Create a new **fleet** stack
 5. Loop while **cars** array is not empty:
+
 - Use the car closest to the target (end of cars array), to calculate ETA: $\frac{(target - car.position)}{car.speed}$.
 - if the fleet stack is empty, pop the car off the cars array and insert into the fleet stack, this will be the leader of the current fleet.
 - if there already is a leader (fleet not empty) and the current car's ETA is <= leader's ETA, pop car off cars array and insert into fleet.
 - if current car's ETA > leader's ETA, this car will never catch up to the fleet; increment the number of fleets and clear the fleet stack
-5. After the loop exits, increment number of fleets by one to account for the last fleet remaining in the stack.
-6. return the number of fleets.
+
+6. After the loop exits, increment number of fleets by one to account for the last fleet remaining in the stack.
+7. return the number of fleets.
 
 ### Complexity
+
 - **Time Complexity**: `O(nlogn)` sorting cars array will take at most `O(nlogn)` time.
 - **Space Complexity**: `O(n)` the combined arraylist and stack will never take more than `n` space where `n` is the amount of cars/positions/speeds.
 
@@ -43,11 +46,14 @@ Return the number of different car fleets that will arrive at the destination.
 2. Use provided position and speed arrays to create a single array of car objects in **O(n)** time.
 3. Sort the car object array in ascending order of position (last car will be closest to target) in **O(nlogn)** time.
 4. Iterate over **cars** array in reverse order:
--  calculate ETA: $\frac{(target - car.position)}{car.speed}$ for current car.
-    - if no fleets have been counted yet, numFleets++ and current car becomes leader by default.
+
+- calculate ETA: $\frac{(target - car.position)}{car.speed}$ for current car.   
+  - if no fleets have been counted yet, numFleets++ and current car becomes leader by default.
 - if current car's ETA is > leader's ETA, numFleets++ and curr car becomes new leader.
-6. return the number of fleets.
+
+1. return the number of fleets.
 
 ### Complexity
+
 - **Time Complexity**: `O(nlogn)` sorting cars array will take at most `O(nlogn)` time.
 - **Space Complexity**: `O(n)` cars arraylist will take additional `n` space where `n` is the amount of cars/positions/speeds.

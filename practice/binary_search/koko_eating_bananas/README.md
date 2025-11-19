@@ -8,7 +8,6 @@ You may decide your bananas-per-hour eating rate of `k`. Each hour, you may choo
 
 Return the minimum integer `k` such that you can eat all the bananas within `h` hours.
 
-
 ### Example 1
 
 ```python

@@ -23,5 +23,6 @@ Return `true` if `s` is a valid string, and `false` otherwise.
 5. After for loop, return false if stack non-empty, else return true.
 
 ### Complexity
+
 - **Time Complexity**: `O(n)` where `n` is the length of the parenthesis string.
 - **Space Complexity**: `O(n)` for the stack in worst case when all items are opening braces.

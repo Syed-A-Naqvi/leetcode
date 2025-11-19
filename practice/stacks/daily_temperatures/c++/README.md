@@ -22,5 +22,6 @@ Return an array `result` where `result[i]` is the number of days after the `ith`
 4. Once the temperatures array has been exhausted, set temperatures for all remaining indecies in the stack to 0
 
 ### Complexity
+
 - **Time Complexity**: `O(2n)` in the worst case (temperatures is sorted in desc order, expect for last element which is largest).
 - **Space Complexity**: `O(n)` in the worst case for the stack.

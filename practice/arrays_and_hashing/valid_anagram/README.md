@@ -14,6 +14,7 @@ soon as a mismatch is found.
 3. Return `true` if no mismatches are found.
 
 ### Complexity
+
 - **Time Complexity**: `O(nlogn + n)` where `n` is the length of the strings.
 - **Space Complexity**: `O(1)` no additional space required.
 
@@ -26,6 +27,7 @@ soon as a mismatch is found.
 3. Return dict1 == dict2.
 
 ## Complexity
+
 - **Time Complexity**: `O(3n)` where `n` is the size of string1 and string2.
 - **Space Complexity**: `O(2n)` creating two dictionaries of size n.
 
@@ -40,5 +42,6 @@ soon as a mismatch is found.
 4. If the strings are anagrams, all character counts will be 0, return `true`, else return `false`
 
 ## Complexity
+
 - **Time Complexity**: `O(3n)` where `n` is the length of strings 1 and 2.
 - **Space Complexity**: `O(n)` since only one dictionary created.

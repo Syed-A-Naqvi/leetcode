@@ -21,7 +21,7 @@ An anagram is a string that contains the exact same characters as another string
    - Add the string to the corresponding list in the hash table.
 6. After processing all strings, collect and return the values (lists of grouped anagrams) from the hash table.
 
-
 ### Complexity
+
 - **Time Complexity**: `O(m*n)` where `m` is the number of strings and `n` is the length of the longest string. 
 - **Space Complexity**: `O(m*n)` the dictionary will take up as much space as `strs`.

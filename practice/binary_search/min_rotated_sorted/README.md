@@ -14,7 +14,6 @@ Assuming all elements in the rotated sorted array `nums` are unique, return the 
 
 A solution that runs in `O(n)` time is trivial, can you write an algorithm that runs in `O(log n)` time?
 
-
 ### Example 1
 
 ```python

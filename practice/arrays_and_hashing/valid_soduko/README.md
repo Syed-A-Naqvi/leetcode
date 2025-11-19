@@ -1,6 +1,7 @@
 # Valid Sudoku
 
 ## Problem Description
+
 Given a `9x9` Sudoku board `board`, determine if the board is valid based on the following rules:
 
 - Each row must contain the digits `1-9` without duplicates.
@@ -20,6 +21,7 @@ Note: A board does not need to be full or be solvable to be valid.
 3. Return `false` if a duplicate is found, else return `true`.
 
 ### Complexity
+
 - **Time Complexity**: `O(3n^2)` where `n` is the length of a row.
 - **Space Complexity**: `O(n)` number tracking sets are never greater than `n` at a time.
 
@@ -37,6 +39,8 @@ Note: A board does not need to be full or be solvable to be valid.
      - If it does, return `false`.
      - Otherwise, add the value to the appropriate sets.
 3. If no duplicates are found, return `true`.
+
 ## Complexity
+
 - **Time Complexity**: `O(n^2)` where `n` is the size of the Sudoku board.
 - **Space Complexity**: `O(n^2)` each hash table will contain n^2 elements in worst case.

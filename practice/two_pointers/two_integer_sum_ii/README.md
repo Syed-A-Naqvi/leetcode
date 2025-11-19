@@ -19,13 +19,14 @@ Output: [1,2]
 ```
 
 Explanation:
+
 The sum of 1 and 2 is 3. Since we are assuming a 1-indexed array, `index1 = 1`, `index2 = 2`. We return `[1, 2]`.
 
 Constraints:
+
 - `2 <= numbers.length <= 1000`
 - `1000 <= numbers[i] <= 1000`
 - `1000 <= target <= 1000`
-
 
 ## Solution 1
 
@@ -37,7 +38,7 @@ Constraints:
         - if `value == array[j]` then we have found the sum; return `[i+1, j+1]` due to 1-indexing
     - *note that array being non-increasing means it is guranteed that `array[i] <= array[i+1]` and `array[j] <= array[j+1]`
 
-
 ### Complexity
+
 - **Time Complexity**: the two pointers both account for `n/2` iterations $\rightarrow$ `O(n)`.
 - **Space Complexity**: `O(1)` constant amount of pointers used.

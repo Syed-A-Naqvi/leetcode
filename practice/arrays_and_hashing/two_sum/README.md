@@ -19,5 +19,6 @@ Return the answer with the smaller index first.
 5. If no pair is found, return `[]`
 
 ### Complexity
+
 - **Time Complexity**: `O(n)` where `n` is the length of `nums` array.
 - **Space Complexity**: `O(n)` for `index` dictionary.

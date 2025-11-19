@@ -18,5 +18,6 @@ The algorithm must run in O(n) time.
 4. Return longest length.
 
 ### Complexity
+
 - **Time Complexity**: `O(4n)` worst case where `n` is the length of `nums` array and each element is its own sequence.
 - **Space Complexity**: `O(n)` for sequence starts array.

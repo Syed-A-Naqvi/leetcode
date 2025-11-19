@@ -6,32 +6,34 @@ You are given an integer array `heights` where `heights[i]` represents the heigh
 
 You may choose any two bars to form a container. Return the *maximum* amount of water a container can store.
 
-#### Example 1:
+### Example 1
+
 ```
 Input: height = [1,7,2,5,4,7,3,6]
 
 Output: 36
 ```
 
-#### Example 2:
+### Example 2
+
 ```
 Input: height = [2,2,2]
 
 Output: 4
 ```
 
-#### Example 3:
+### Example 3
+
 ```
 Input: nums = [0,0,0]
 
 Output: [[0,0,0]]
 ```
 
-#### Constraints:
+### Constraints
+
 - `2 <= height.length <= 1000`
 - `0 <= height[i] <= 1000`
-
-
 
 ## Solution 1
 
@@ -42,7 +44,7 @@ Output: [[0,0,0]]
     - If `height[i] > height[j]` then `j--` since `j` points to the shorter bar, else `i++` in case of a tie or if `i` points to the shorter bar.
 2. return maxArea.
 
-
 ### Complexity
+
 - **Time Complexity**: Total number of elements traversed by each pointer is `n` $\rightarrow$ `O(n)`.
 - **Space Complexity**: Constant number of additional variables created $\rightarrow$ `O(1)`.

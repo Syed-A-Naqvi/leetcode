@@ -21,5 +21,6 @@ Given an integer `n`. Return all well-formed parentheses strings that you can ge
     - append to results array
 
 ### Complexity
+
 - **Time Complexity**: `O($\frac{4^{n}}{\sqrt{n}}$)` recursive tree time complexity.
 - **Space Complexity**: `O(n)`algorithm requires at most 2n space in the stack for building valid parentheses.

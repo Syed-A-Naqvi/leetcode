@@ -35,5 +35,6 @@ Each function should run in O(1) time.
 1. Return the top element of the minimum stack without popping.
 
 ### Complexity
+
 - **Time Complexity**: `O(1)` all operations run in constant time.
 - **Space Complexity**: `O(2n)` will require 2n space in the worst case (i.e. elements pushed in descending order).

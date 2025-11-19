@@ -6,17 +6,18 @@ You are given an array of non-negative integers `height` which represent an elev
 
 Return the maximum area of water that can be trapped between the bars.
 
-#### Example 1:
+### Example 1
+
 ```
 Input: height = [0,2,0,3,1,0,1,3,2,1]
 
 Output: 9
 ```
 
-#### Constraints:
+### Constraints
+
 - `1 <= height.length <= 1000`
 - `0 <= height[i] <= 1000`
-
 
 ## Solution 1
 
@@ -43,5 +44,6 @@ Output: 9
 3. return `total_trapped`
 
 ### Complexity
+
 - **Time Complexity**: Total combined elements traversed by both pointers is `n` $\rightarrow$ `O(n)`.
 - **Space Complexity**: Constant number of additional variables created $\rightarrow$ `O(1)`.

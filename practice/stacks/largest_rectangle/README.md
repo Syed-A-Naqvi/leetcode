@@ -14,26 +14,28 @@ Note: This chart is known as a histogram.
 
 2. Create a `bars` stack for `Bar` objects. 
 
-2. Loop until `i` > `heights.length`:
-    - If `ith` height `==` current top of stack:
-      - increment `i`.
-      - set new effective index to `i`.
-    - If `ith` height `>` current top of stack:
-      - create and push a new bar onto stack at effective index.
-      - increment `i`.
-      - set the new effective index to `i`.
-    - If `ith` height `<` current top of stack:
-      - pop a bar off the stack and calculate area using height = `bar.height` and width = `i - bar.index`.
-      - index of popped bar is now the effective index.
-      - update current max area depending on calculated area.
+3. Loop until `i` > `heights.length`:
 
-3. After heights array has been exhausted, loop until `bars` stack is empty:
+- If `ith` height `==` current top of stack:
+  - increment `i`.
+  - set new effective index to `i`.
+- If `ith` height `>` current top of stack:
+  - create and push a new bar onto stack at effective index.
+  - increment `i`.
+  - set the new effective index to `i`.
+- If `ith` height `<` current top of stack:
   - pop a bar off the stack and calculate area using height = `bar.height` and width = `i - bar.index`.
-  - update best area if appropriate.
+  - index of popped bar is now the effective index.
+  - update current max area depending on calculated area.
 
-4. return best area.
+4. After heights array has been exhausted, loop until `bars` stack is empty:
 
+- pop a bar off the stack and calculate area using height = `bar.height` and width = `i - bar.index`.
+- update best area if appropriate.
+
+5. return best area.
 
 ### Complexity
+
 - **Time Complexity**: `O(n)`; in the worst case, each element of the heights array is processed twice `O(2n) = O(n)`.
 - **Space Complexity**: `O(n)` the stack will take at most and additional space of `n`.
