@@ -8,7 +8,7 @@ copyright: "2025"
 
 # Custom Metadata
 project_metadata:
-  tags: ["SQL", "Database Management", "Python", "JavaScript", "C++", "Java", "Data Structures", "Algorithms"]
+  tags: ["SQL", "PostgreSQL", "Python", "JavaScript", "C++", "Java", "Data Structures", "Algorithms"]
   # tags: ["tag 3", "tag 4"]
 
 # Sphinx exclude patterns
