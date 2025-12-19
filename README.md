@@ -1,10 +1,10 @@
-# Databases & Programming Practice
+# Databases & Programming
 
 **A repository containing documented solutions to database querying, design, modelling and management problems as well as data structuress & algorithms programming practice.**
 
 *Author: Arham Naqvi*
 
-*Last Updated: December 16th, 2025*
+*Last Updated: December 19th, 2025*
 
 ---
 
